@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Генератор паролей</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logotip.png">
+</head>
+<body oncopy="return false" oncut="return false" onpaste="return false">
+  <div class="container">
+    <header>
+      <img src="logotip.png" alt="Логотип" class="logo">
+      <h1>Генератор паролей</h1>
+      <button id="theme-toggle" aria-label="Переключить тему"></button>
+    </header>
+    <form id="settings">
+      <div class="range-group">
+        <label for="length">Длина пароля: <span id="length-value">12</span></label>
+        <input type="range" id="length" min="4" max="32" value="12">
+      </div>
+      <div class="checkbox-group">
+        <label><input type="checkbox" id="lowercase" checked> a-z</label>
+        <label><input type="checkbox" id="uppercase" checked> A-Z</label>
+        <label><input type="checkbox" id="numbers" checked> 0-9</label>
+        <label><input type="checkbox" id="symbols" checked> !@#$...</label>
+      </div>
+      <button type="button" id="generate">Сгенерировать</button>
+      <button type="button" id="generate-multi">Сгенерировать несколько</button>
+    </form>
+    <div class="output-group">
+      <input type="text" id="password" readonly>
+      <button id="copy">Скопировать</button>
+    </div>
+    <div id="strength-indicator">
+      <span id="strength-text">Надёжность:</span>
+      <div id="strength-bar"></div>
+    </div>
+    <div id="multi-passwords" class="hidden"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

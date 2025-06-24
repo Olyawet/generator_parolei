@@ -1,0 +1,180 @@
+/* Базовые переменные для светлой и тёмной темы */
+:root {
+  --bg: #f4f4f7;
+  --fg: #222;
+  --accent: #4f8cff;
+  --border: #e0e0e0;
+  --input-bg: #fff;
+  --input-fg: #222;
+  --strength-weak: #ff4d4f;
+  --strength-medium: #ffc53d;
+  --strength-strong: #52c41a;
+}
+body.dark {
+  --bg: #181a1b;
+  --fg: #f4f4f7;
+  --accent: #4f8cff;
+  --border: #333;
+  --input-bg: #23272f;
+  --input-fg: #f4f4f7;
+}
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+.container {
+  max-width: 400px;
+  margin: 2rem auto;
+  background: var(--input-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--border);
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.logo {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+  margin-right: 0.7rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+#theme-toggle {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: var(--accent);
+  border-radius: 50%;
+  cursor: pointer;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a9 9 0 0 0 0 18 9 9 0 0 0 0-18zm0 16a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background 0.3s;
+}
+body.dark #theme-toggle {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.64 13.64A9 9 0 0 1 12 21a9 9 0 0 1 0-18c.34 0 .67.02 1 .05A7 7 0 0 0 21.64 13.64z"/></svg>');
+}
+form#settings {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.range-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+input[type="range"] {
+  width: 100%;
+}
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+.checkbox-group label {
+  font-size: 1rem;
+  user-select: none;
+}
+button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 1.2em;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+button:hover {
+  background: #3566b8;
+}
+.output-group {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1.2rem 0 0.7rem 0;
+}
+#password {
+  flex: 1;
+  font-size: 1.1rem;
+  padding: 0.5em;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--input-fg);
+  transition: background 0.3s, color 0.3s;
+}
+#copy {
+  min-width: 110px;
+}
+#strength-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+#strength-bar {
+  width: 100px;
+  height: 12px;
+  border-radius: 6px;
+  background: var(--border);
+  transition: background 0.3s;
+}
+#strength-bar.weak {
+  background: var(--strength-weak);
+}
+#strength-bar.medium {
+  background: var(--strength-medium);
+}
+#strength-bar.strong {
+  background: var(--strength-strong);
+}
+#multi-passwords {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+#multi-passwords.hidden {
+  display: none;
+}
+#multi-passwords input {
+  font-size: 1rem;
+  padding: 0.4em;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--input-fg);
+}
+@media (max-width: 600px) {
+  .container {
+    max-width: 98vw;
+    padding: 1rem 0.3rem;
+  }
+  header h1 {
+    font-size: 1.2rem;
+  }
+  .logo {
+    height: 32px;
+    width: 32px;
+    margin-right: 0.5rem;
+  }
+  button, input, label {
+    font-size: 0.98rem;
+  }
+  #strength-bar {
+    width: 70px;
+    height: 10px;
+  }
+}
